@@ -22,7 +22,7 @@ const HamburgerNav = (props) => {
                 <a href="">MAGAZINE</a>
               </div>
           <div className="hamburger-text-small">
-            <a href="">Log In</a>
+          <a onClick={() => navigate("/login")} href="">Login</a>
           </div>
           <div className="hamburger-text-small">
             <a onClick={() => navigate("/*")} href="">Create Account</a>

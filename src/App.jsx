@@ -1,6 +1,6 @@
 import Homepage from "./components/pages/Homepage";
 import Footer from "./components/Footer";
-import Login from "./components/Login";
+import Login from "./components/pages/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.css";
 import AllProducts from "./components/pages/products/AllProducts";
@@ -14,6 +14,7 @@ import Contact from "./components/pages/Contact";
 import Magazine from "./components/pages/Magazine";
 import BackToTopButton from "./components/BackToTopButton";
 import ProductDetail from "./components/pages/products/DetailProducts";
+import Search from "./components/Search";
 
 import Pants from "./components/pages/products/Pants";
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/Magazine" element={<Magazine />}></Route>
           <Route path="/pants" element={<Pants />}></Route>
           <Route path="/products/:id" element={<ProductDetail />}></Route>
+          <Route path="/search" element={<Search />}></Route>
         </Routes>
       </Router>
       <BackToTopButton />

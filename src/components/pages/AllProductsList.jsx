@@ -1,4 +1,5 @@
 import * as Icon from "react-feather";
+import { useNavigate } from "react-router-dom";
 
 const AllProductsList = ({
   link,
@@ -19,9 +20,12 @@ const AllProductsList = ({
     return stars;
   };
 
+  const navigate = useNavigate();
+
   return (
     <a
-      href={link}
+    onClick={() => navigate({link})}
+      href=''
       target="_blank"
       rel="noopener noreferrer"
       className="hover-item hover:opacity-80 text-[#232324] rounded-md overflow-hidden font-sans mx-3 max-w-[277px] "
