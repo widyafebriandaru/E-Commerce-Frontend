@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleScroll = () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    setIsVisible(scrollTop > 0);
-  };
+  // const handleScroll = () => {
+  //   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  //   setIsVisible(scrollTop > 0);
+  // };
 
   const scrollToTop = () => {
     window.scrollTo({

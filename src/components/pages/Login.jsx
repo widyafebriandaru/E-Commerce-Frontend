@@ -1,6 +1,8 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Header from "../Header";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginUser, reset } from "../../features/authSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,6 +17,19 @@ const Login = () => {
     repeatPassword: "",
     acceptTerms: false,
   });
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user, isError, isSuccess, isLoading, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (user || isSuccess) {
+      // navigate("/products/allProducts");
+    }
+    dispatch(reset());
+  }, [user, isSuccess, dispatch, navigate]);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -38,6 +53,7 @@ const Login = () => {
     e.preventDefault();
     // Handle login logic
     console.log("Logging in with email:", email, "and password:", password);
+    dispatch(loginUser({ email, password }));
   };
 
   const handleRegistration = (e) => {
@@ -50,13 +66,12 @@ const Login = () => {
     setShowLogin(!showLogin);
   };
 
-  const navigate = useNavigate();
-
   return (
     <>
       <Header />
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-400 via-black to-white bg-right-bottom">
         <div className="bg-white shadow-lg rounded p-8">
+          {isError && <h1 className="">{message}</h1>}
           {showLogin ? (
             <form onSubmit={handleLogin}>
               <h2 className="text-2xl font-bold mb-6">Login</h2>
@@ -86,10 +101,23 @@ const Login = () => {
                 type="submit"
                 className="bg-gradient-to-r from-gray-600 to-black text-white rounded px-4 py-2"
               >
-                Login
+                {isLoading ? 'Loading...' : 'Login'}
               </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
               <p className="mt-4">
-                Don't have an account?{" "}
+                Do not have an account?{" "}
                 <a
                   href="#"
                   onClick={toggleLoginRegister}
