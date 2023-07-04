@@ -7,7 +7,7 @@ const Welcome = () => {
     <div>
       <h1 className="title">Dashboard</h1>
       <h2 className="subtitle">
-        Welcome Back <strong>{user && user.fullName}</strong>
+        Welcome Back <strong>{user && user.fullName} sebagai {user && user.accountType}</strong>
       </h2>
     </div>
   );

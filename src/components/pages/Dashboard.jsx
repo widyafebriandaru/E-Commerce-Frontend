@@ -8,7 +8,7 @@ import Welcome from "../Welcome";
 const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isError } = useSelector((state) => state.auth);
+  const { isError, user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(getMe());
@@ -19,6 +19,10 @@ const Dashboard = () => {
       navigate("/");
     }
   }, [isError, navigate]);
+
+  if (user && user.accountType !== "admin") {
+    navigate("/");
+  }
 
   return (
       <Layout> 

@@ -31,6 +31,7 @@ const Login = () => {
     dispatch(reset());
   }, [user, isSuccess, dispatch, navigate]);
 
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -101,9 +102,8 @@ const Login = () => {
                 type="submit"
                 className="bg-gradient-to-r from-gray-600 to-black text-white rounded px-4 py-2"
               >
-                {isLoading ? 'Loading...' : 'Login'}
+                {isLoading ? "Loading..." : "Login"}
               </button>
-
 
               <p className="mt-4">
                 Do not have an account?{" "}

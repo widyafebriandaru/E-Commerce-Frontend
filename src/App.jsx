@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getMe } from "./features/authSlice";
 import Homepage from "./components/pages/Homepage";
 import Footer from "./components/Footer";
 import Login from "./components/pages/Login";
@@ -17,8 +20,18 @@ import ProductDetail from "./components/pages/products/DetailProducts";
 import Pants from "./components/pages/products/Pants";
 import Search from "./components/Search";
 import Dashboard from "./components/pages/Dashboard";
+import UserProfile from "./components/pages/UserProfile";
+
+
 
 function App() {
+  
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getMe());
+  }, [dispatch]);
+
+
   return (
     <>
       <Router>
@@ -38,6 +51,7 @@ function App() {
           <Route path="/products/:id" element={<ProductDetail />}></Route>
           <Route path="/search" element={<Search />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/user-profile" element={<UserProfile />}></Route>
         </Routes>
       </Router>
       <BackToTopButton />

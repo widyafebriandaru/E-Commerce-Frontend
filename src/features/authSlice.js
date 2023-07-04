@@ -23,20 +23,6 @@ export const loginUser = createAsyncThunk("user/loginUser", async(user, thunkAPI
         }
     }
 })
-export const loginUser = createAsyncThunk("user/loginUser", async(user, thunkAPI) => {
-    try {
-        const response = await axios.post('http://localhost:3001/login', {
-            email: user.email,
-            password: user.password
-        });
-        return response.data;
-    } catch (error) {
-        if(error.response){
-            const message = error.response.data.msg;
-            return thunkAPI.rejectWithValue(message);
-        }
-    }
-})
 
 export const getMe = createAsyncThunk("user/getMe", async(_, thunkAPI) => {
     try {
