@@ -105,17 +105,6 @@ const Login = () => {
               </button>
 
 
-
-
-
-
-
-
-
-
-
-
-
               <p className="mt-4">
                 Do not have an account?{" "}
                 <a

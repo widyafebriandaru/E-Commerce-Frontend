@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 
 const Layout = ({ children }) => {
   return (
-    <React.Fragment>
+    <>
       <LayoutNav />
       <div className="flex mt-6 min-h-screen">
         <div className="w-1/6">
@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
           <main>{children}</main>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
