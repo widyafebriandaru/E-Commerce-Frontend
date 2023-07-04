@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 import SecondContent from "./SecondContent";
 import CarouselComponent from "../Carousel";
 
-
-
 const Homepage = () => {
   const navigate = useNavigate();
   

@@ -14,9 +14,9 @@ import Contact from "./components/pages/Contact";
 import Magazine from "./components/pages/Magazine";
 import BackToTopButton from "./components/BackToTopButton";
 import ProductDetail from "./components/pages/products/DetailProducts";
-import Search from "./components/Search";
-
 import Pants from "./components/pages/products/Pants";
+import Search from "./components/Search";
+import Dashboard from "./components/pages/Dashboard";
 
 function App() {
   return (
@@ -37,6 +37,7 @@ function App() {
           <Route path="/pants" element={<Pants />}></Route>
           <Route path="/products/:id" element={<ProductDetail />}></Route>
           <Route path="/search" element={<Search />}></Route>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
       </Router>
       <BackToTopButton />
