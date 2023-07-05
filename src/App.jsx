@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { getMe } from "./features/authSlice";
 import Homepage from "./components/pages/Homepage";
 import Footer from "./components/Footer";
@@ -21,6 +21,8 @@ import Pants from "./components/pages/products/Pants";
 import Search from "./components/Search";
 import Dashboard from "./components/pages/Dashboard";
 import UserProfile from "./components/pages/UserProfile";
+import AdminProducts from "./components/AdminProducts";
+import FormAddProduct from "./components/FormAddProduct";
 
 
 
@@ -52,6 +54,8 @@ function App() {
           <Route path="/search" element={<Search />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/user-profile" element={<UserProfile />}></Route>
+          <Route path="/admin/products" element={<AdminProducts />}></Route>
+          <Route path="/products/add" element={<FormAddProduct />}></Route>
         </Routes>
       </Router>
       <BackToTopButton />

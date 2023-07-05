@@ -29,7 +29,7 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink
-              to={"/products"}
+              to={"/admin/products"}
               className="text-blue-500 hover:text-blue-600"
               activeClassName="text-blue-600"
             >
