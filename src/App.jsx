@@ -23,7 +23,7 @@ import Dashboard from "./components/pages/Dashboard";
 import UserProfile from "./components/pages/UserProfile";
 import AdminProducts from "./components/AdminProducts";
 import FormAddProduct from "./components/FormAddProduct";
-
+import FormEditProduct from "./components/FormEditProduct";
 
 
 function App() {
@@ -56,6 +56,7 @@ function App() {
           <Route path="/user-profile" element={<UserProfile />}></Route>
           <Route path="/admin/products" element={<AdminProducts />}></Route>
           <Route path="/products/add" element={<FormAddProduct />}></Route>
+          <Route path="/products/edit/:id" element={<FormEditProduct />}></Route>
         </Routes>
       </Router>
       <BackToTopButton />
