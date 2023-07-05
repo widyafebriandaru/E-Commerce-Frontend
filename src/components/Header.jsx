@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import HamburgerNav from "./HamburgerNav";
 import * as Icon from "react-feather";
 import { useNavigate } from "react-router-dom";
+import Search from "./Search";
 
 const Header = () => {
   const [navbarState, setNavbarState] = useState(false);
@@ -234,7 +235,7 @@ const Header = () => {
               </svg>
             </button>
 
-            {searchVisible ? (
+            {/* {searchVisible ? (
               <div className="nav-link relative flex items-center">
                 <input
                   ref={searchInputRef}
@@ -258,7 +259,8 @@ const Header = () => {
               >
                 <Icon.Search />
               </button>
-            )}
+            )} */}
+            <Search/>
           </div>
         </div>
       </div>

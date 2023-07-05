@@ -96,6 +96,7 @@ const AdminProducts = () => {
     <div>
       <h1 className="text-2xl font-bold mb-4">Products</h1>
       <h2 className="text-xl font-bold mb-2">List of Products</h2>
+
       <div className="mb-2">
       <Link
         to="/products/add"
@@ -111,6 +112,8 @@ const AdminProducts = () => {
           className="border border-gray-300 rounded px-2 py-1"
         />
       </div>
+      <div className="font-semibold">Total All Products: {filteredProducts.length} </div>
+
       <table className="border-collapse w-full">
         <thead>
           <tr>

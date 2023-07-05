@@ -1,5 +1,3 @@
-
-
 const WrongPage = () => {
   return (
     <>

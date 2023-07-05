@@ -24,7 +24,7 @@ import UserProfile from "./components/pages/UserProfile";
 import AdminProducts from "./components/AdminProducts";
 import FormAddProduct from "./components/FormAddProduct";
 import FormEditProduct from "./components/FormEditProduct";
-
+import SearchResults from "./components/pages/products/SearchResults";
 
 function App() {
   
@@ -51,12 +51,13 @@ function App() {
           <Route path="/Magazine" element={<Magazine />}></Route>
           <Route path="/pants" element={<Pants />}></Route>
           <Route path="/products/:id" element={<ProductDetail />}></Route>
-          <Route path="/search" element={<Search />}></Route>
+          <Route path="/searchz" element={<Search />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/user-profile" element={<UserProfile />}></Route>
           <Route path="/admin/products" element={<AdminProducts />}></Route>
           <Route path="/products/add" element={<FormAddProduct />}></Route>
           <Route path="/products/edit/:id" element={<FormEditProduct />}></Route>
+          <Route exact path="/search" element={<SearchResults />}></Route>
         </Routes>
       </Router>
       <BackToTopButton />

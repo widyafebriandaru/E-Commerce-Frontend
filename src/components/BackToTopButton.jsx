@@ -3,11 +3,6 @@ import { useState, useEffect } from "react";
 const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // const handleScroll = () => {
-  //   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  //   setIsVisible(scrollTop > 0);
-  // };
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -34,10 +29,8 @@ const BackToTopButton = () => {
 
   return (
     <button
-      className={`${
-        isVisible
-          ? "fixed bottom-4 right-4 opacity-100 transition-opacity duration-500 ease-in"
-          : "opacity-0 transition-opacity duration-500 ease-out"
+      className={`fixed bottom-4 right-4 opacity-0 transition-opacity duration-500 ease-in-out ${
+        isVisible ? "opacity-100" : ""
       } bg-black hover:bg-slate-400 text-white text-xs px-3 py-2 rounded-full z-50`}
       onClick={scrollToTop}
     >

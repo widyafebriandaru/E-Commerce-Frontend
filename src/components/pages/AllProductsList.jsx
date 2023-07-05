@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as Icon from "react-feather";
 import { useNavigate } from "react-router-dom";
 
@@ -21,11 +22,15 @@ const AllProductsList = ({
   };
 
   const navigate = useNavigate();
-
+  const handleNavigate = (e) => {
+    e.preventDefault();
+    navigate(link);
+    
+  };
   return (
     <a
-    onClick={() => navigate({link})}
-      href=''
+    href={link} // Use the link as href for accessibility and fallback
+      onClick={handleNavigate} // Handle navigation through useNavigate
       target="_blank"
       rel="noopener noreferrer"
       className="hover-item hover:opacity-80 text-[#232324] rounded-md overflow-hidden font-sans mx-3 max-w-[277px] "
