@@ -26,8 +26,20 @@ const FormEditProduct = () => {
     const getProductById = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/products/allProducts/${id}`);
-        setName(response.data.data.detailName);
-        setPrice(response.data.data.initialPrice);
+        setName(response.data.detailName);
+        setPrice(response.data.initialPrice);
+        setDiscount(response.data.discount);
+        setCategory(response.data.category);
+        setReview(response.data.review);
+        setRating(response.data.rating);
+        setDescription(response.data.description);
+        setProduct_quote_S(response.data.product_quote_S);
+        setProduct_quote_L(response.data.product_quote_L);
+        setProduct_quote_XL(response.data.product_quote_XL);
+        setThumbnailPreview(response.data.thumbnailPreview);
+        setThumbnailUrl1(response.data.thumbnailUrl1);
+        setThumbnailUrl2(response.data.thumbnailUrl2);
+        setThumbnailUrl3(response.data.thumbnailUrl3);
       } catch (error) {
         if (error.response) {
           setMsg(error.response.data.data.msg);
