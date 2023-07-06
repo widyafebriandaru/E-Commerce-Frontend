@@ -41,7 +41,7 @@ const AllProductsList = ({
       <div className="flex justify-center">
       <img
         src={imgUrl}
-        alt="portfolio"
+        alt="image"
         className="md:w-full w-52 h-36 md:h-48 object-cover mt-4"
       />
       </div>

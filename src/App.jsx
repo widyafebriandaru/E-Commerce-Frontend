@@ -53,7 +53,7 @@ function App() {
           <Route path="/products/:id" element={<ProductDetail />}></Route>
           <Route path="/searchz" element={<Search />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/user-profile" element={<UserProfile />}></Route>
+          <Route path="/user" element={<UserProfile />}></Route>
           <Route path="/admin/products" element={<AdminProducts />}></Route>
           <Route path="/products/add" element={<FormAddProduct />}></Route>
           <Route path="/products/edit/:id" element={<FormEditProduct />}></Route>

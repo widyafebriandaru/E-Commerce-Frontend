@@ -9,8 +9,8 @@ const Search = () => {
       <form>
         <input
           type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          value={searchQuery} //supaya ketika di enter, nilai di dalam kolom tidak hilang
+          onChange={(e) => setSearchQuery(e.target.value)} //Ketika ada input di submit, akan set sesuai nilai yg dimasukin
           className="text-black border border-gray-300 rounded px-3 py-2"
           placeholder="Search..."
         />

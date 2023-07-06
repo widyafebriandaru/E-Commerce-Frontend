@@ -3,18 +3,13 @@ import Header from "../Header";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginUser, reset } from "../../features/authSlice";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showLogin, setShowLogin] = useState(true);
   const [registrationData, setRegistrationData] = useState({
-    email: "",
-    username: "",
-    address: "",
-    phoneNumber: "",
-    password: "",
-    repeatPassword: "",
     acceptTerms: false,
   });
 
@@ -57,14 +52,42 @@ const Login = () => {
     dispatch(loginUser({ email, password }));
   };
 
-  const handleRegistration = (e) => {
-    e.preventDefault();
-    // Handle registration logic
-    console.log("Registering with data:", registrationData);
-  };
-
+  
   const toggleLoginRegister = () => {
     setShowLogin(!showLogin);
+  };
+  
+  // const handleRegistration = (e) => {
+  //   e.preventDefault();
+  //   // Handle registration logic
+  //   console.log("Registering with data:", registrationData);
+  // };
+
+  const [name, setName] = useState("");
+  const [regEmail, setRegEmail] = useState("");
+  const [regPassword, setRegPassword] = useState("");
+  const [confPassword, setConfPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [msg, setMsg] = useState("");
+
+  const saveUser = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:3001/users", {
+        fullName: name,
+        email: regEmail,
+        password: regPassword,
+        confPassword: confPassword,
+        phone: phone,
+        accountType: "customer",
+      });
+      toggleLoginRegister();
+      alert("Register Success, please login to your account")
+    } catch (error) {
+      if (error.response) {
+        setMsg(error.response.data.msg);
+      }
+    }
   };
 
   return (
@@ -75,6 +98,7 @@ const Login = () => {
           {isError && <h1 className="">{message}</h1>}
           {showLogin ? (
             <form onSubmit={handleLogin}>
+              <p>{msg}</p>
               <h2 className="text-2xl font-bold mb-6">Login</h2>
               <div className="mb-4">
                 <label className="block mb-2">Email:</label>
@@ -117,15 +141,15 @@ const Login = () => {
               </p>
             </form>
           ) : (
-            <form onSubmit={handleRegistration}>
+            <form onSubmit={saveUser}>
               <h2 className="text-2xl font-bold mb-6">Register</h2>
               <div className="mb-4">
                 <label className="block mb-2">Email:</label>
                 <input
                   type="email"
                   name="email"
-                  value={registrationData.email}
-                  onChange={handleRegistrationDataChange}
+                  value={regEmail}
+                  onChange={(e) => setRegEmail(e.target.value)}
                   className="w-full border border-gray-300 rounded px-3 py-2"
                   required
                 />
@@ -135,19 +159,8 @@ const Login = () => {
                 <input
                   type="text"
                   name="username"
-                  value={registrationData.username}
-                  onChange={handleRegistrationDataChange}
-                  className="w-full border border-gray-300 rounded px-3 py-2"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block mb-2">Address:</label>
-                <input
-                  type="text"
-                  name="address"
-                  value={registrationData.address}
-                  onChange={handleRegistrationDataChange}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="w-full border border-gray-300 rounded px-3 py-2"
                   required
                 />
@@ -157,8 +170,19 @@ const Login = () => {
                 <input
                   type="tel"
                   name="phoneNumber"
-                  value={registrationData.phoneNumber}
-                  onChange={handleRegistrationDataChange}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full border border-gray-300 rounded px-3 py-2"
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block mb-2">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  value={regPassword}
+                  onChange={(e) => setRegPassword(e.target.value)}
                   className="w-full border border-gray-300 rounded px-3 py-2"
                   required
                 />
@@ -168,19 +192,8 @@ const Login = () => {
                 <input
                   type="password"
                   name="password"
-                  value={registrationData.password}
-                  onChange={handleRegistrationDataChange}
-                  className="w-full border border-gray-300 rounded px-3 py-2"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block mb-2">Repeat Password:</label>
-                <input
-                  type="password"
-                  name="repeatPassword"
-                  value={registrationData.repeatPassword}
-                  onChange={handleRegistrationDataChange}
+                  value={confPassword}
+                  onChange={(e) => setConfPassword(e.target.value)}
                   className="w-full border border-gray-300 rounded px-3 py-2"
                   required
                 />

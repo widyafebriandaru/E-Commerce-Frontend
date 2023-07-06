@@ -87,13 +87,16 @@ const FormAddProduct = () => {
             </div>
             <div className="my-4">
               <label className="block font-bold mb-2">Category</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                placeholder="Category"
-              />
+              <select
+                      value={category}
+                      onChange={(e) => setCategory(e.target.value)}
+                    >
+                      <option value="T-Shirt">T-Shirt</option>
+                      <option value="Shirt">Shirt</option>
+                      <option value="Sweater">Sweater</option>
+                      <option value="Pants">Pants</option>
+                      <option value="Accessories">Accessories</option>
+                    </select>
             </div>
             <div className="my-4">
               <label className="block font-bold mb-2">Review</label>
