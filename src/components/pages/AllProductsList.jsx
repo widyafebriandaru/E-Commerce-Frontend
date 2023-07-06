@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import * as Icon from "react-feather";
+import { useNavigate } from "react-router-dom";
 
 const AllProductsList = ({
   link,
@@ -19,9 +21,16 @@ const AllProductsList = ({
     return stars;
   };
 
+  const navigate = useNavigate();
+  const handleNavigate = (e) => {
+    e.preventDefault();
+    navigate(link);
+    
+  };
   return (
     <a
-      href={link}
+    href={link} // Use the link as href for accessibility and fallback
+      onClick={handleNavigate} // Handle navigation through useNavigate
       target="_blank"
       rel="noopener noreferrer"
       className="hover-item hover:opacity-80 text-[#232324] rounded-md overflow-hidden font-sans mx-3 max-w-[277px] "
@@ -32,7 +41,7 @@ const AllProductsList = ({
       <div className="flex justify-center">
       <img
         src={imgUrl}
-        alt="portfolio"
+        alt="image"
         className="md:w-full w-52 h-36 md:h-48 object-cover mt-4"
       />
       </div>

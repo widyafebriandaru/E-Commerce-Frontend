@@ -19,7 +19,7 @@ html {
   }
 
   .hero-img {
-    background-image: url("../assets/Homepage/Hero.jpg");
+    background-image: url("../assets/Homepage/Hero2.png");
   }
 }
 
@@ -62,6 +62,7 @@ html {
     overflow: auto;
   }
 }
+
 .dropdown > .nav-link:focus,
 .nav-link:hover {
   color: #232324;

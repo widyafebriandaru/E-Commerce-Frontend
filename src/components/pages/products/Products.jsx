@@ -3,6 +3,7 @@ import Header from '../../Header';
 import AllProductsList from '../AllProductsList';
 import CarouselComponent from '../../Carousel';
 
+// eslint-disable-next-line react/prop-types
 const Products = ({ endpoint }) => {
   const [data, setData] = useState([]);
 
@@ -39,6 +40,7 @@ const Products = ({ endpoint }) => {
       </span>
     ));
   };
+
 
   return (
     <>

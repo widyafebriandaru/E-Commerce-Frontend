@@ -1,4 +1,5 @@
-import React, {props} from 'react';
+/* eslint-disable react/prop-types */
+// import React, {props} from 'react';
 import { useNavigate } from "react-router-dom";
 
 const HamburgerNav = (props) => {
@@ -22,7 +23,7 @@ const HamburgerNav = (props) => {
                 <a href="">MAGAZINE</a>
               </div>
           <div className="hamburger-text-small">
-            <a href="">Log In</a>
+          <a onClick={() => navigate("/login")} href="">Login</a>
           </div>
           <div className="hamburger-text-small">
             <a onClick={() => navigate("/*")} href="">Create Account</a>
