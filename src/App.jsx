@@ -25,6 +25,7 @@ import AdminProducts from "./components/AdminProducts";
 import FormAddProduct from "./components/FormAddProduct";
 import FormEditProduct from "./components/FormEditProduct";
 import SearchResults from "./components/pages/products/SearchResults";
+import Cart from "./components/pages/Cart";
 
 function App() {
   
@@ -58,6 +59,7 @@ function App() {
           <Route path="/products/add" element={<FormAddProduct />}></Route>
           <Route path="/products/edit/:id" element={<FormEditProduct />}></Route>
           <Route exact path="/search" element={<SearchResults />}></Route>
+          <Route exact path="/cart" element={<Cart />}></Route>
         </Routes>
       </Router>
       <BackToTopButton />
