@@ -29,56 +29,25 @@ function CarouselComponent() {
   }, []);
 
   return (
-    <div className="w-full h-fit items-center justify-center hidden sm:flex">
-      <Carousel
-        selectedItem={currentSlide}
-        onChange={onChange}
-        showStatus={false}
-        showThumbs={false}
-        transitionTime={1000} // Transition time in milliseconds
-        showIndicators={true}
-        infiniteLoop
-        renderThumbs={() => null}
-        renderArrowPrev={(onClickHandler, hasPrev, label) =>
-          hasPrev && (
-            <button
-              type="button"
-              onClick={onClickHandler}
-              title={label}
-              className="carousel-arrow carousel-arrow-prev"
-            >
-              &#8249;
-            </button>
-          )
-        }
-        renderArrowNext={(onClickHandler, hasNext, label) =>
-          hasNext && (
-            <button
-              type="button"
-              onClick={onClickHandler}
-              title={label}
-              className="carousel-arrow carousel-arrow-next"
-            >
-              &#8250;
-            </button>
-          )
-        }
-      >
-        <div className={getSlideClassName(0)}>
-          <img src="assets/Carousel/img-carousel1.jpeg" alt="Slide 1" className="slide-image" />
-        </div>
-        <div className={getSlideClassName(1)}>
-          <img src="assets/Carousel/img-carousel2.jpeg" alt="Slide 2" className="slide-image" />
-        </div>
-        <div className={getSlideClassName(2)}>
-          <img src="assets/Carousel/img-carousel3.jpeg" alt="Slide 3" className="slide-image" />
-        </div>
-        <div className={getSlideClassName(3)}>
-          <img src="assets/Carousel/img-carousel4.jpeg" alt="Slide 4" className="slide-image" />
-        </div>
-      </Carousel>
-    </div>
-  );
+            <Carousel showArrows={true} onChange={onChange} autoFocus={true}>
+                <div>
+                    <img src="assets/Carousel/img-carousel1.jpeg" />
+                    <p className="legend">Legend 1</p>
+                </div>
+                <div>
+                    <img src="assets/Carousel/img-carousel2.jpeg" />
+                    <p className="legend">Legend 2</p>
+                </div>
+                <div>
+                    <img src="assets/Carousel/img-carousel3.jpeg" />
+                    <p className="legend">Legend 3</p>
+                </div>
+                <div>
+                    <img src="assets/Carousel/img-carousel4.jpeg" />
+                    <p className="legend">Legend 4</p>
+                </div>
+            </Carousel>
+        );
 }
 
 export default CarouselComponent;
