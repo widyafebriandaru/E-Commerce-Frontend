@@ -16,15 +16,14 @@ const Sidebar = () => {
   return (
     <div>
       <aside className="menu pl-2 shadow">
-        <p className="menu-label">General</p>
         <ul className="menu-list">
           <li>
             <NavLink
-              to={"/dashboard"}
+              to={"/"}
               className="text-blue-500 hover:text-blue-600"
               activeClassName="text-blue-600"
             >
-              Dashboard
+              Homepage
             </NavLink>
           </li>
           <li>
@@ -53,8 +52,6 @@ const Sidebar = () => {
             </ul>
           </div>
         )}
-
-        <p className="menu-label">Settings</p>
         <ul className="menu-list">
           <li>
             <button

@@ -125,7 +125,7 @@ html {
 }
 
 .hover-price {
-  background: linear-gradient(to left, transparent 50%, rgb(148, 163, 184) 50%)
+  background: linear-gradient(to left, transparent 50%, rgb(71, 85, 105) 50%)
     right;
   background-size: 200%;
   transition: 0.5s ease-out;

@@ -7,7 +7,7 @@ function Magazine() {
     <div>
       {/* Start HOW TO TAKE CARE OF YOUR CLOTHES */}
       <div id="container1">
-        <div className="bg-slate-400 h-[57px]">
+        <div className="bg-slate-600 h-[57px]">
           <Header />
         </div>
         <div className="my-9">

@@ -26,6 +26,10 @@ import FormAddProduct from "./components/FormAddProduct";
 import FormEditProduct from "./components/FormEditProduct";
 import SearchResults from "./components/pages/products/SearchResults";
 import Cart from "./components/pages/Cart";
+import AllProductsCart from "./components/pages/AllProductsCart";
+import FAQ from "./components/pages/FAQ";
+
+
 
 function App() {
   
@@ -59,11 +63,13 @@ function App() {
           <Route path="/products/add" element={<FormAddProduct />}></Route>
           <Route path="/products/edit/:id" element={<FormEditProduct />}></Route>
           <Route exact path="/search" element={<SearchResults />}></Route>
-          <Route exact path="/cart" element={<Cart />}></Route>
+          <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/all-products-cart" element={<AllProductsCart/>}></Route>
+          <Route path="/faq" element={<FAQ/>}></Route>
         </Routes>
-      </Router>
       <BackToTopButton />
     <Footer/>
+      </Router>
     </>
   );
 }

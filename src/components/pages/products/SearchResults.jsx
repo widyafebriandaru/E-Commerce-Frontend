@@ -34,7 +34,7 @@ const SearchResults = () => {
 
   return (
     <>
-      <div className="bg-slate-400 h-[57px]">
+      <div className="bg-slate-600 h-[57px]">
         <Header />
       </div>
 

@@ -2,7 +2,7 @@ import Header from "../Header";
 function Contact() {
   return (
     <>
-      <div className="bg-slate-400 h-[57px]">
+      <div className="bg-slate-600 h-[57px]">
         <Header />
       </div>
       <div className="flex flex-col mx-auto pt-20 px-10 bg-white items-center justify-center min-h-screen">
