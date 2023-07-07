@@ -43,6 +43,7 @@ export const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers:{
+        // eslint-disable-next-line no-unused-vars
         reset: (state) => initialState
     },
     extraReducers:(builder) =>{

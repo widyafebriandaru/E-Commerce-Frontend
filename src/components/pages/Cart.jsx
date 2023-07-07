@@ -2,14 +2,24 @@ import { useEffect, useState } from 'react';
 import AllProductsList from './AllProductsList';
 import Header from '../Header';
 import { useDispatch, useSelector } from "react-redux";
+import { getMe } from "../../features/authSlice";
+
 
 const Cart = () => {
-    const {user } = useSelector((state) => state.auth);
+    const dispatch = useDispatch();
     const [data, setData] = useState([]);
+    const {user } = useSelector((state) => state.auth);
+    
+    useEffect(() => {
+        dispatch(getMe());
+    }, [dispatch]);
+
+    console.log(user && user.id)
+
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('http://localhost:3001/orders');
+            const response = await fetch(`http://localhost:3001/orders/${user.id}`);
             const jsonData = await response.json();
             setData(jsonData.data);
           } catch (error) {
@@ -18,7 +28,7 @@ const Cart = () => {
         };
     
         fetchData();
-      }, []);
+      }, [user]);
 
       const countMatchingData = () => {
         const matchingData = data.filter((order) => order.user_id === user.id);
@@ -34,7 +44,7 @@ const Cart = () => {
         <div className="flex flex-col md:flex-row items-center justify-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {data
-            .filter((order) => order.user_id === (user && user.id))
+            // .filter((order) => order.user_id === (user && user.id))
             .map((order) => (
               <AllProductsList
                 key={order.id}
