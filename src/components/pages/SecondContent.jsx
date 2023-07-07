@@ -1,9 +1,18 @@
+import { useNavigate } from "react-router"
+import { useState } from "react";
+
 function SecondContent() {
+  
+  const navigate = useNavigate();
+  const [selectedSize, setSelectedSize] = useState(null);
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+  };
   // Container
   return (
-    <div id="container-secondcontent " className="mt-11">
+    <div id="container-secondcontent " >
       {/* <!-- Start Description product --> */}
-      <div id="description-product" className="flex justify-center items-center py-11 px-8 max-md:flex-col max-md:5">
+      <div id="description-product" className="flex justify-center items-center pt-5 pb-7 px-8 max-md:flex-col max-md:5">
         {/* <!-- Sisipan Gambar  --> */}
         <img src="https://cdn.shopify.com/s/files/1/1365/9261/files/DSCF7675_540x.jpg?v=1677780326" alt="Image-description" className="w-96 max-md:w-[45rem]" />
 
@@ -52,7 +61,7 @@ function SecondContent() {
       {/* <!-- Start Singel Product --> */}
       <div id="product-singel" className="flex justify-center items-center px-6 max-md:flex-col pb-7 max-md:transition">
         {/* <!-- Sisipan Gambar --> */}
-        <img src="https://cdn.shopify.com/s/files/1/1365/9261/products/id-11134201-23020-9f4o5wqk0wnvf7_900x.jpg?v=1677755200" alt="Jaket Screamous" className="w-[30rem]" />
+        <img src="https://www.screamous.com/cdn/shop/files/id-11134207-7qul9-li77pj321yi4e5_360x.jpg?v=1687173662" alt="Jaket Screamous" className="w-[30rem]" />
         {/* <!-- Detail Product --> */}
         <div id="wrapper-detail-product-singel">
           <h2 className="text-center mb-2">Screamous / Daily Wear</h2>
@@ -70,20 +79,53 @@ function SecondContent() {
           <hr className="w-10 border-2 border-black mx-auto" />
           <div className="flex flex-col justify-around items-center">
             <span className="my-3">Warna</span>
-            <span className="border border-black py-[0.10rem] px-2">Green</span>
+            <span className="border border-black py-[0.10rem] px-2">Abu-abu</span>
             <span className="py-2">Ukuran</span>
             <ul className="flex justify-evenly w-10/12 text-[0.75rem] items-center my-4">
-              <li className="border border-black px-3 py-1 cursor-pointer hover:bg-slate-300">S</li>
-              <li className="border border-black px-3 py-1 cursor-pointer hover:bg-slate-300">M</li>
-              <li className="border border-black px-3 py-1 cursor-pointer hover:bg-slate-300">L</li>
-              <li className="border border-black px-3 py-1 cursor-pointer hover:bg-slate-300">XL</li>
-              <li className="border border-black px-3 py-1 cursor-pointer hover:bg-slate-300">XXL</li>
-            </ul>
+      <li
+        className={`border border-black px-3 py-1 cursor-pointer ${
+          selectedSize === 'S' ? 'bg-black text-white' : 'hover:bg-slate-300'
+        }`}
+        onClick={() => handleSizeClick('S')}
+      >
+        S
+      </li>
+      <li
+        className={`border border-black px-3 py-1 cursor-pointer ${
+          selectedSize === 'M' ? 'bg-black text-white' : 'hover:bg-slate-300'
+        }`}
+        onClick={() => handleSizeClick('M')}
+      >
+        M
+      </li>
+      <li
+        className={`border border-black px-3 py-1 cursor-pointer ${
+          selectedSize === 'L' ? 'bg-black text-white' : 'hover:bg-slate-300'
+        }`}
+        onClick={() => handleSizeClick('L')}
+      >
+        L
+      </li>
+      <li
+        className={`border border-black px-3 py-1 cursor-pointer ${
+          selectedSize === 'XL' ? 'bg-black text-white' : 'hover:bg-slate-300'
+        }`}
+        onClick={() => handleSizeClick('XL')}
+      >
+        XL
+      </li>
+      <li
+        className={`border border-black px-3 py-1 cursor-pointer ${
+          selectedSize === 'XXL' ? 'bg-black text-white' : 'hover:bg-slate-300'
+        }`}
+        onClick={() => handleSizeClick('XXL')}
+      >
+        XXL
+      </li>
+    </ul>
             <div className="flex flex-col justify-around h-28">
-              <button className="w-full border border-black decoration-1 py-2">Add To Chart</button>
-              <button className="bg-black text-white w-72 border hover:opacity-80 py-2">Buy It Now</button>
-            </div>
-            <span className="my-6 text-xs font-sans font-semibold text-orange-500 hover:text-black cursor-pointer">Full Detail -&gt </span>
+              <button onClick={() => navigate("/products/6")} className="bg-black text-white w-72 border hover:opacity-80 py-2">Buy It Now</button>
+            </div> 
           </div>
         </div>
       </div>

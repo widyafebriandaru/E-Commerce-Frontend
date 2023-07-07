@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react';
-import Header from '../../Header';
-import AllProductsList from '../AllProductsList';
-import CarouselComponent from '../../Carousel';
+import AllProductsList from './pages/AllProductsList';
 
 // eslint-disable-next-line react/prop-types
-const Products = ({ endpoint }) => {
+const HomepageMain = ({ endpoint }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/products/${endpoint}`);
+        const response = await fetch(`http://localhost:3001/products/accessories`);
         const jsonData = await response.json();
         setData(jsonData.data);
       } catch (error) {
@@ -44,12 +42,8 @@ const Products = ({ endpoint }) => {
 
   return (
     <>
-      <div className="bg-slate-400 h-[57px]">
-        <Header />
-      </div>
-
       <div className="py-10 px-5">
-      <div className="flex flex-col md:flex-row items-center justify-center">
+        <div className="flex flex-col md:flex-row items-center justify-center">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {data.map((item) => (
               <AllProductsList
@@ -68,9 +62,8 @@ const Products = ({ endpoint }) => {
           </div>
         </div>
       </div>
-      <CarouselComponent/>
     </>
   );
 };
 
-export default Products;
+export default HomepageMain;

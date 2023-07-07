@@ -41,7 +41,7 @@ html {
     @apply hover:text-white;
     color: #bbcbcb;
     display: block;
-    margin: 1.5rem 0;
+    margin: 0.3rem 0;
     padding: 0.5rem;
     font-size: 1.7rem;
   }
@@ -50,7 +50,6 @@ html {
     @apply hover:text-white;
     color: #bbcbcb;
     display: block;
-    margin: 0.5rem;
     padding: 0.5rem;
     font-size: 1rem;
   }
@@ -106,7 +105,7 @@ html {
   left: 0;
   top: calc(100% + 0.25rem);
   background-color: #232324;
-  padding: 0.75rem;
+  padding: 0.5rem;
   border-radius: 0.25rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;

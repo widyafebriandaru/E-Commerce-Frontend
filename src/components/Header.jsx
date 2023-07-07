@@ -2,15 +2,23 @@ import { useEffect, useState, useRef } from "react";
 import HamburgerNav from "./HamburgerNav";
 import * as Icon from "react-feather";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Search from "./Search";
+import { getMe } from "../features/authSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const { user, isSuccess } = useSelector((state) => state.auth);
   const [navbarState, setNavbarState] = useState(false);
   const toggleClassCheck = navbarState
     ? "hamburger-nav active"
     : "hamburger-nav";
 
   const menuRef = useRef();
+
+  useEffect(() => {
+    dispatch(getMe());
+  }, [dispatch]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -109,31 +117,31 @@ const Header = () => {
 
           <button href="" className="logo mb-2" onClick={() => navigate("/")}>
             <img
-              className="max-h-14 max-w-[240px] sm:left-12 ml-12 sm:ml-0"
+              className="max-h-14 max-w-[240px] sm:left-12 ml-12 sm:ml-0 mr-10 nav-link hover:scale-125 transition ease-in-out duration-[350ms]"
               src="/assets/Homepage/hero-logo.png"
               alt=""
             />
           </button>
 
           <div className="flex text-white gap-2">
-            <div className="dropdown w-32 hidden md:flex">
+            <div className="dropdown hidden md:flex mr-4">
               <button
                 onClick={() => setDropDownState(!dropDownState)}
-                className="nav-link h-7 text-xl pl-7 w-full flex hover:scale-110 transition ease-in-out duration-[350ms]"
+                className="nav-link h-7 text-base sm:text-lg w-full flex hover:scale-110 transition ease-in-out duration-[350ms]"
                 href=""
               >
                 SHOP{" "}
-                <div className="mt-2 ml-2">
+                <div className="mt-2">
                   <Icon.ArrowDown size={12} />
                 </div>
               </button>
-              <div className={`${toggleDropDown} text-lg`} ref={dropDownRef}>
+              <div className={`${toggleDropDown} text-base `} ref={dropDownRef}>
                 <button
-                  className="block hover:text-gray-600"
+                  className="block hover:text-gray-600 text-left"
                   onClick={() => navigate("/new-arrivals")}
                 >
                   {" "}
-                  New Arrivals
+                  Arrivals
                 </button>
                 <button
                   className="block hover:text-gray-600"
@@ -183,17 +191,17 @@ const Header = () => {
             <div className="dropdown">
               <button
                 onClick={() => setDropDownState2(!dropDownState2)}
-                className="nav-link h-7 hidden md:flex text-xl hover:scale-110 transition ease-in-out duration-[350ms]"
+                className="nav-link h-7 hidden md:flex text-base sm:text-lg hover:scale-110 transition ease-in-out duration-[350ms]"
                 href=""
               >
                 GOOD VIBRATIONS{" "}
-                <div className="mt-2 ml-2">
+                <div className="mt-2 ">
                   <Icon.ArrowDown size={12} />
                 </div>
               </button>
               <div className={`${toggleDropDown2}`} ref={dropDownRef2}>
                 <button
-                  className="hover:text-gray-600"
+                  className="hover:text-gray-600 text-sm"
                   onClick={() => navigate("/new-arrivals")}
                 >
                   {" "}
@@ -203,7 +211,7 @@ const Header = () => {
             </div>
 
             <a
-              className="nav-link h-7 hidden md:block text-xl px-3  hover:scale-110 transition ease-in-out duration-[350ms]"
+              className="text-base sm:text-lg nav-link h-7 hidden md:flex px-2 hover:scale-110 transition ease-in-out duration-[350ms]"
               href="#"
               onClick={() => navigate("/Magazine")}
             >
@@ -211,7 +219,13 @@ const Header = () => {
             </a>
 
             <button
-              onClick={() => navigate("/login")}
+              onClick={() =>
+                isSuccess
+                  ? user.accountType === "customer"
+                    ? navigate("/user")
+                    : navigate("/dashboard")
+                  : navigate("/login")
+              }
               className="nav-link w-7 h-7 hover:scale-110 transition ease-in-out duration-[350ms]"
               href=""
             >
@@ -223,7 +237,7 @@ const Header = () => {
               </svg>
             </button>
             <button
-              onClick={() => navigate("/*")}
+              onClick={() => navigate("/cart")}
               className="nav-link w-7 h-7  hover:scale-110 transition ease-in-out duration-[350ms]"
               href=""
             >
@@ -234,33 +248,9 @@ const Header = () => {
                 />
               </svg>
             </button>
-
-            {/* {searchVisible ? (
-              <div className="nav-link relative flex items-center">
-                <input
-                  ref={searchInputRef}
-                  type="text"
-                  placeholder="Search"
-                  className="py-1 px-2 border-2 border-gray-400 rounded-md text-black"
-                  style={{ color: "black" }}
-                />
-                <button
-                  className="nav-link w-7 h-7 hover:scale-110 transition ease-in-out duration-[350ms]"
-                  onClick={() => setSearchVisible(false)}
-                >
-                  <Icon.X />
-                </button>
-              </div>
-            ) : (
-              <button
-                onClick={() => setSearchVisible(true)}
-                className="nav-link w-7 h-7 hover:scale-110 transition ease-in-out duration-[350ms]"
-                href=""
-              >
-                <Icon.Search />
-              </button>
-            )} */}
-            <Search/>
+            <div className="hidden sm:flex">
+              <Search />
+            </div>
           </div>
         </div>
       </div>

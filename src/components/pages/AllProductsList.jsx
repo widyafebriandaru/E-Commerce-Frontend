@@ -29,13 +29,13 @@ const AllProductsList = ({
   };
   return (
     <a
-    href={link} // Use the link as href for accessibility and fallback
-      onClick={handleNavigate} // Handle navigation through useNavigate
+    href={link} 
+      onClick={handleNavigate}
       target="_blank"
       rel="noopener noreferrer"
       className="hover-item hover:opacity-80 text-[#232324] rounded-md overflow-hidden font-sans mx-3 max-w-[277px] "
     >
-      <div className="hover-price text-red-900 font-semibold border-2 border-red-900 rounded-3xl relative w-2/6 flex items-center">
+      <div className="hover-price text-sm text-red-900 font-semibold border-2 border-red-900 rounded-3xl relative w-20 left-4 top-4 flex items-center">
         <div className="text-center"> Save {discountPercent}%OFF</div>
       </div>
       <div className="flex justify-center">
@@ -45,13 +45,13 @@ const AllProductsList = ({
         className="md:w-full w-52 h-36 md:h-48 object-cover mt-4"
       />
       </div>
-      <div className="w-full py-5 px-8">
-        <h2 className="text-l md:text-xl pt-2 md:mb-1 font-normal text-center">
+      <div className="w-full sm:px-8 ">
+        <h2 className="text-base md:text-l pt-2 md:mb-1 font-normal text-center">
           {title}
         </h2>
         <h2 className="text-center text-l md:text-xl font-semibold">
           {" "}
-          <Icon.Minus className="inline" /> Rp
+          Rp
           <del className="text-red-500">{discountPrice}</del> {price}
         </h2>
         <p className="flex justify-center text-md md:text-l">{renderStars()}</p>

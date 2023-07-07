@@ -4,7 +4,6 @@ import Header from '../Header';
 import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../../features/authSlice";
 
-
 const Cart = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState([]);
@@ -13,8 +12,6 @@ const Cart = () => {
     useEffect(() => {
         dispatch(getMe());
     }, [dispatch]);
-
-    console.log(user && user.id)
 
     useEffect(() => {
         const fetchData = async () => {
