@@ -92,7 +92,7 @@ const ProductDetail = () => {
       <div className="bg-slate-600 h-[57px]">
         <Header />
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap mb-16">
         <div className="w-full md:w-1/2 p-4">
           {/* Main Product Image */}
           <img

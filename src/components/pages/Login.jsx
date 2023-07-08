@@ -94,7 +94,7 @@ const Login = () => {
     <>
       <Header />
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-400 via-black to-white bg-right-bottom">
-        <div className="bg-white shadow-lg rounded p-8">
+        <div className="bg-white shadow-lg rounded p-8 m-28">
           {isError && <h1 className="">{message}</h1>}
           {showLogin ? (
             <form onSubmit={handleLogin}>

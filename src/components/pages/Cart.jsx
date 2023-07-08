@@ -36,12 +36,42 @@ const Cart = () => {
   //   }
   // };
 
+//CART COUNTING
+
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`http://localhost:3001/orders/${user.id}`);
+      const jsonData = await response.json();
+      setData(jsonData.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  fetchData();
+}, [user]);
+
+const [cartNumber, setCartNumber] = useState(0);
+
+useEffect(() => {
+  const countMatchingData = () => {
+    const matchingData = data.filter((order) => order.user_id === user.id);
+    return matchingData.length;
+  };
+
+  const updatedCartNumber = countMatchingData();
+
+  setCartNumber(updatedCartNumber);
+}, [data, user]);
+
   return (
     <>
       <div className="bg-slate-600 h-[57px]">
         <Header />
       </div>
-
+    <h1 className="text-xl mt-6 container ml-4">You have <span className="font-bold">{cartNumber}</span> product on your cart</h1>
       <div className="py-10">
         <div className="flex flex-col md:flex-row items-center justify-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
