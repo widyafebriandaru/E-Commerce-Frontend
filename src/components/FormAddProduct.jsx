@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Layout from "./Layout";
 
 const FormAddProduct = () => {
   const [name, setName] = useState("");
@@ -19,6 +20,7 @@ const FormAddProduct = () => {
   const [thumbnailUrl3, setThumbnailUrl3] = useState("");
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
+
 
   const saveProduct = async (e) => {
     e.preventDefault();
@@ -48,6 +50,7 @@ const FormAddProduct = () => {
   };
 
   return (
+    <Layout>
     <div>
       <h1 className="text-2xl font-bold">Products</h1>
       <h2 className="text-xl font-bold">Add New Product</h2>
@@ -211,6 +214,7 @@ const FormAddProduct = () => {
         </div>
       </div>
     </div>
+    </Layout>
   );
 };
 

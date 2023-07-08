@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Layout from "./Layout";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
@@ -22,7 +23,7 @@ const AdminProducts = () => {
 
   const deleteProduct = async (productId) => {
     try {
-      await axios.delete(`http://localhost:3001/products/allProducts/${productId}`);
+      await axios.delete(`http://localhost:3001/orders/${productId}`);
       getProducts();
     } catch (error) {
       console.error("Error deleting product:", error);
@@ -93,6 +94,7 @@ const AdminProducts = () => {
   });
 
   return (
+    <Layout>
     <div>
       <h1 className="text-2xl font-bold mb-4">Products</h1>
       <h2 className="text-xl font-bold mb-2">List of Products</h2>
@@ -184,6 +186,7 @@ const AdminProducts = () => {
         </tbody>
       </table>
     </div>
+    </Layout>
   );
 };
 

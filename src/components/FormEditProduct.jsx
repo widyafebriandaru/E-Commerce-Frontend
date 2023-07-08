@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import Layout from "./Layout";
 
 const FormEditProduct = () => {
   const [name, setName] = useState("");
@@ -25,7 +26,9 @@ const FormEditProduct = () => {
   useEffect(() => {
     const getProductById = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/products/allProducts/${id}`);
+        const response = await axios.get(
+          `http://localhost:3001/products/allProducts/${id}`
+        );
         setName(response.data.detailName);
         setPrice(response.data.initialPrice);
         setDiscount(response.data.discount);
@@ -75,168 +78,186 @@ const FormEditProduct = () => {
       }
     }
   };
-
+  const handleBack = () => {
+    navigate("/admin/products");
+  };
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Products</h1>
-      <h2 className="text-xl font-bold">Edit Products</h2>
-      <div className="shadow-md p-6">
-        <div className="content">
-          <form onSubmit={updateProduct}>
-            <p className="text-center">{msg}</p>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Name</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Product Name"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Price</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                placeholder="Price"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Discount</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={discount}
-                onChange={(e) => setDiscount(e.target.value)}
-                placeholder="Discount"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Category</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                placeholder="Category"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Review</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={review}
-                onChange={(e) => setReview(e.target.value)}
-                placeholder="Review"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Rating</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={rating}
-                onChange={(e) => setRating(e.target.value)}
-                placeholder="Rating"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Description</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                placeholder="Description"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Product Quote (S)</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={product_quote_S}
-                onChange={(e) => setProduct_quote_S(e.target.value)}
-                placeholder="Product Quote (S)"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Product Quote (L)</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={product_quote_L}
-                onChange={(e) => setProduct_quote_L(e.target.value)}
-                placeholder="Product Quote (L)"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Product Quote (XL)</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={product_quote_XL}
-                onChange={(e) => setProduct_quote_XL(e.target.value)}
-                placeholder="Product Quote (XL)"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Thumbnail Preview</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={thumbnailPreview}
-                onChange={(e) => setThumbnailPreview(e.target.value)}
-                placeholder="Thumbnail Preview"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Thumbnail URL 1</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={thumbnailUrl1}
-                onChange={(e) => setThumbnailUrl1(e.target.value)}
-                placeholder="Thumbnail URL 1"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Thumbnail URL 2</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={thumbnailUrl2}
-                onChange={(e) => setThumbnailUrl2(e.target.value)}
-                placeholder="Thumbnail URL 2"
-              />
-            </div>
-            <div className="my-4">
-              <label className="block font-bold mb-2">Thumbnail URL 3</label>
-              <input
-                type="text"
-                className="border border-gray-300 p-2 w-full"
-                value={thumbnailUrl3}
-                onChange={(e) => setThumbnailUrl3(e.target.value)}
-                placeholder="Thumbnail URL 3"
-              />
-            </div>
+    <Layout>
+      <div>
+        <h1 className="text-2xl font-bold">Products</h1>
+        <h2 className="text-xl font-bold">Edit Products</h2>
+        <button
+          className="bg-slate-400 text-white px-2 py-1 rounded-md font-semibold hover:bg-slate-600  hover:scale-110 transition ease-in-out duration-[350ms]"
+          onClick={handleBack}
+        >
+          Back
+        </button>
+        <div className="shadow-md p-6">
+          <div className="content">
+            <form onSubmit={updateProduct}>
+              <p className="text-center">{msg}</p>
+              <div className="my-4">
+                <label className="block font-bold mb-2">Name</label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Product Name"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">Price</label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  placeholder="Price"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">Discount</label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={discount}
+                  onChange={(e) => setDiscount(e.target.value)}
+                  placeholder="Discount"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">Category</label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  placeholder="Category"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">Review</label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={review}
+                  onChange={(e) => setReview(e.target.value)}
+                  placeholder="Review"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">Rating</label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={rating}
+                  onChange={(e) => setRating(e.target.value)}
+                  placeholder="Rating"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">Description</label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Description"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">
+                  Product Quote (S)
+                </label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={product_quote_S}
+                  onChange={(e) => setProduct_quote_S(e.target.value)}
+                  placeholder="Product Quote (S)"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">
+                  Product Quote (L)
+                </label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={product_quote_L}
+                  onChange={(e) => setProduct_quote_L(e.target.value)}
+                  placeholder="Product Quote (L)"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">
+                  Product Quote (XL)
+                </label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={product_quote_XL}
+                  onChange={(e) => setProduct_quote_XL(e.target.value)}
+                  placeholder="Product Quote (XL)"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">
+                  Thumbnail Preview
+                </label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={thumbnailPreview}
+                  onChange={(e) => setThumbnailPreview(e.target.value)}
+                  placeholder="Thumbnail Preview"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">Thumbnail URL 1</label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={thumbnailUrl1}
+                  onChange={(e) => setThumbnailUrl1(e.target.value)}
+                  placeholder="Thumbnail URL 1"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">Thumbnail URL 2</label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={thumbnailUrl2}
+                  onChange={(e) => setThumbnailUrl2(e.target.value)}
+                  placeholder="Thumbnail URL 2"
+                />
+              </div>
+              <div className="my-4">
+                <label className="block font-bold mb-2">Thumbnail URL 3</label>
+                <input
+                  type="text"
+                  className="border border-gray-300 p-2 w-full"
+                  value={thumbnailUrl3}
+                  onChange={(e) => setThumbnailUrl3(e.target.value)}
+                  placeholder="Thumbnail URL 3"
+                />
+              </div>
 
-            <div className="my-4">
-              <button
-                type="submit"
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-              >
-                Save
-              </button>
-            </div>
-          </form>
+              <div className="my-4">
+                <button
+                  type="submit"
+                  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

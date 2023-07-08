@@ -1,43 +1,30 @@
-import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { logOut, reset } from "../features/authSlice";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth);
-
-  const logout = () => {
-    dispatch(logOut());
-    dispatch(reset());
-    navigate("/");
-  };
-
   return (
     <div>
-      <aside className="menu pl-2 shadow">
-        <p className="menu-label">General</p>
-        <ul className="menu-list">
+      <aside className="pl-2">
+        <ul className="">
           <li>
             <NavLink
-              to={"/dashboard"}
-              className="text-blue-500 hover:text-blue-600"
+              to={"/"}
+              className="text-slate-500 hover:text-black font-bold w-full"
               activeClassName="text-blue-600"
             >
-              Dashboard
+              Homepage
             </NavLink>
           </li>
           <li>
             <NavLink
               to={"/admin/products"}
-              className="text-blue-500 hover:text-blue-600"
+              className="text-slate-500 hover:text-black font-bold w-full"
               activeClassName="text-blue-600"
             >
               Products
             </NavLink>
           </li>
         </ul>
-        {user && user.role === "admin" && (
+        {/* {user && user.role === "admin" && (
           <div>
             <p className="menu-label">Admin</p>
             <ul className="menu-list">
@@ -52,19 +39,7 @@ const Sidebar = () => {
               </li>
             </ul>
           </div>
-        )}
-
-        <p className="menu-label">Settings</p>
-        <ul className="menu-list">
-          <li>
-            <button
-              onClick={logout}
-              className="button bg-white text-gray-700 hover:bg-gray-100"
-            >
-              Logout
-            </button>
-          </li>
-        </ul>
+        )} */}
       </aside>
     </div>
   );

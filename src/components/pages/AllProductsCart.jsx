@@ -2,7 +2,7 @@
 import * as Icon from "react-feather";
 import { useNavigate } from "react-router-dom";
 
-const AllProductsList = ({
+const AllProductsCart = ({
   link,
   title,
   rating,
@@ -21,6 +21,7 @@ const AllProductsList = ({
     return stars;
   };
 
+
   const navigate = useNavigate();
   const handleNavigate = (e) => {
     e.preventDefault();
@@ -28,6 +29,7 @@ const AllProductsList = ({
     
   };
   return (
+    
     <a
     href={link} 
       onClick={handleNavigate}
@@ -35,6 +37,7 @@ const AllProductsList = ({
       rel="noopener noreferrer"
       className="hover-item hover:opacity-80 text-[#232324] rounded-md overflow-hidden font-sans mx-3 max-w-[277px] "
     >
+         
       <div className="hover-price text-sm text-red-900 font-semibold border-2 border-red-900 rounded-3xl relative w-20 left-4 top-4 flex items-center">
         <div className="text-center"> Save {discountPercent}%OFF</div>
       </div>
@@ -60,4 +63,4 @@ const AllProductsList = ({
   );
 };
 
-export default AllProductsList;
+export default AllProductsCart;
