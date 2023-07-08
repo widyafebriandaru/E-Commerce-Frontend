@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
+
 const Footer = () => {
   const navigate = useNavigate();
   return (
@@ -45,27 +46,27 @@ const Footer = () => {
             </li>
 
             <li>
-              <a
+              <a onClick={() => navigate("/terms-and-conditions")}
                 className="text-gray-700 transition hover:text-gray-700/75"
-                href="/"
+                href=""
               >
                 Terms & Conditions
               </a>
             </li>
 
             <li>
-              <a
+              <a onClick={() => navigate("/terms-of-service")}
                 className="text-gray-700 transition hover:text-gray-700/75"
-                href="/"
+                href=""
               >
                 Terms of Services
               </a>
             </li>
 
             <li>
-              <a
+            <a onClick={() => navigate("/magazine")}
                 className="text-gray-700 transition hover:text-gray-700/75"
-                href="/"
+                href=""
               >
                 Magazine
               </a>
@@ -75,7 +76,7 @@ const Footer = () => {
           <ul className="mt-12 flex justify-center gap-6 md:gap-8">
             <li>
               <a
-                href="/"
+                href=""
                 rel="noreferrer"
                 target="_blank"
                 className="text-gray-700 transition hover:text-gray-700/75"
@@ -98,7 +99,7 @@ const Footer = () => {
 
             <li>
               <a
-                href="/"
+                href=""
                 rel="noreferrer"
                 target="_blank"
                 className="text-gray-700 transition hover:text-gray-700/75"
@@ -121,7 +122,7 @@ const Footer = () => {
 
             <li>
               <a
-                href="/"
+                href=""
                 rel="noreferrer"
                 target="_blank"
                 className="text-gray-700 transition hover:text-gray-700/75"
@@ -140,7 +141,7 @@ const Footer = () => {
 
             <li>
               <a
-                href="/"
+                href=""
                 rel="noreferrer"
                 target="_blank"
                 className="text-gray-700 transition hover:text-gray-700/75"
@@ -163,7 +164,7 @@ const Footer = () => {
 
             <li>
               <a
-                href="/"
+                href=""
                 rel="noreferrer"
                 target="_blank"
                 className="text-gray-700 transition hover:text-gray-700/75"
@@ -184,6 +185,9 @@ const Footer = () => {
               </a>
             </li>
           </ul>
+        <p className="text-center text-gray-700 text-sm pt-5 font-medium">
+           Created by Kelompok 3 + Widya Febriandaru <a className="bg-gradient-to-r from-blue-800 to-blue-300 text-transparent bg-clip-text" href="https://www.harisenin.com" target="_blank" rel="noreferrer">Harisenin.com</a> | &copy; 2023
+        </p>
         </div>
       </div>
     </>

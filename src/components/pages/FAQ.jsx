@@ -1,7 +1,12 @@
+import Header from "../Header";
+
 
 const FAQ = () => {
   return (
     <>
+    <div className="bg-slate-600 h-[57px]">
+          <Header />
+        </div>
     <div className='container mx-auto pt-20 py-10 '>
       <h1 className='text-center font-extrabold text-4xl'>FAQ</h1>
 

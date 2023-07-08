@@ -25,7 +25,7 @@ html {
 
 @layer utilities {
   .hamburger-nav {
-    background-color: #232324;
+    background-color: rgb(71, 85, 105);
     position: fixed;
     top: 0px;
     left: -100%;

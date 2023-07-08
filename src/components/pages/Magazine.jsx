@@ -1,6 +1,4 @@
 import Header from "../Header";
-import CarouselComponent from "../Carousel";
-import Footer from "../Footer";
 
 function Magazine() {
   return (
@@ -28,7 +26,7 @@ function Magazine() {
           <hr className="border-[1px] border-black w-14  my-4" />
         </div>
         <div className="">
-          <strong className="text-xl">
+          <strong className="text-4xl">
             {" "}
             HOW TO TAKE CARE OF YOUR HEART CLOTHES{" "}
           </strong>
@@ -73,7 +71,7 @@ function Magazine() {
           <hr className="border-[1px] border-black w-14  my-4" />
         </div>
         <div>
-          <strong className="text-xl"> SCREAMOUS X USUGROW </strong>
+          <strong className="text-4xl"> SCREAMOUS X USUGROW </strong>
           <p className="font-medium">
             SCREAMOUS CLOTHING Memasuki tahun ke-16 berkarya dan mengawali tahun
             ini dengan bangga kami mengumumkan akan kembali berkolaborasi dengan
@@ -101,7 +99,7 @@ function Magazine() {
         </div>
         {/* Responsive untuk tag  */}
         <div className="tag flex gap-4  lg:hidden">
-          <strong className="">Tags:</strong>
+          <strong className="">Tagtext-4xl</strong>
           <a
             href="#"
             className="text-orange-700 font-medium hover:text-gray-700"
@@ -118,7 +116,7 @@ function Magazine() {
       </div>
       {/* Responsive untuk tag min-width 1024 px */}
       <div className="tag flex gap-4  max-lg:hidden w-[46rem] mx-auto ">
-        <strong className="">Tags:</strong>
+        <strong className="">Tagtext-4xl</strong>
         <a href="#" className="text-orange-700 font-medium hover:text-gray-700">
           EVENT
         </a>
@@ -141,7 +139,7 @@ function Magazine() {
         <h1 className="text-lg font-medium ">October 30, 2019</h1>
         <hr className="border-[1px] border-black w-14  my-4" />
         <div>
-          <strong className="text-xl"> KICKFEST BANDUNG XIII </strong>
+          <strong className="text-4xl"> KICKFEST BANDUNG XIII </strong>
           <p className="font-medium">
             Ada yang berbeda di Kickfest XIII yang hadir tanggal 31 Oktober-3
             November 2019. Selain durasi perayaan yang lebih panjang menjadi 4
@@ -183,7 +181,7 @@ function Magazine() {
         <h1 className="text-lg font-medium ">October 14, 2019</h1>
         <hr className="border-[1px] border-black w-14  my-4" />
         <div>
-          <strong className="text-xl"> Intimate Session with Coldiac </strong>
+          <strong className="text-4xl"> Intimate Session with Coldiac </strong>
           <p className="font-medium">
             Merayakan dibukanya store ke-7 Screamous di Malang, kami menggelar
             Intimate Session with Coldiac, yang menjadi bagian dari Tiba-tiba
@@ -214,7 +212,7 @@ function Magazine() {
       {/* Start Tag */}
 
       <div className="tag flex gap-4 mx-5 flex-wrap lg:w-[46rem] lg:justify-center lg:mx-auto ">
-        <strong className="">Tags:</strong>
+        <strong className="">Tagtext-4xl</strong>
         <a href="#" className="text-orange-700 font-medium hover:text-gray-700">
           Coldiac
         </a>
@@ -259,7 +257,7 @@ function Magazine() {
         <h1 className="text-lg font-medium ">July 28, 2019</h1>
         <hr className="border-[1px] border-black w-14  my-4" />
         <div>
-          <strong className="text-xl"> Launching of Arkiv X Screamous </strong>
+          <strong className="text-4xl"> Launching of Arkiv X Screamous </strong>
           <p className="font-medium">
             Merayakan pencapaian 15 tahun perjalanan kami, adalah sebuah
             kebanggaan bisa mengajak seorang seniman muda berbakat asal Bandung
@@ -287,7 +285,7 @@ function Magazine() {
           </p>
         </div>
         <div className="tag flex gap-4 lg:hidden ">
-          <strong className="">Tags:</strong>
+          <strong className="">Tagtext-4xl</strong>
           <a
             href="#"
             className="text-orange-700 font-medium hover:text-gray-700"
@@ -304,7 +302,7 @@ function Magazine() {
       </div>
       {/* Tag Responsive */}
       <div className="tag flex gap-4  max-lg:hidden w-[46rem] mx-auto ">
-        <strong className="">Tags:</strong>
+        <strong className="">Tagtext-4xl</strong>
         <a href="#" className="text-orange-700 font-medium hover:text-gray-700">
           EVENT
         </a>
@@ -369,8 +367,6 @@ function Magazine() {
 
       <hr className="border-[1px] border-black w-14  my-4 mx-auto" />
       {/* Akhir Next Page */}
-      <CarouselComponent/>
-      <Footer />
     </div>
   );
 }
