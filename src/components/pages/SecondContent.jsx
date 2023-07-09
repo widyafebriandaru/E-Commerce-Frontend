@@ -50,7 +50,7 @@ function SecondContent() {
             <br />
             celebration, a good vibration.
           </p>
-          <a href="#" className="bg-[#1f2021] text-[#f7f7f7] px-4 py-2 text-sm hover:opacity-75 transition cursor-pointer">
+          <a  onClick={() => navigate("/magazine")} href="" className="bg-[#1f2021] text-[#f7f7f7] px-4 py-2 text-sm hover:opacity-75 transition cursor-pointer">
             Discover More...
           </a>
         </div>
