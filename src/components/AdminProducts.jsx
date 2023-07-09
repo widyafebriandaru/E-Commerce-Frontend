@@ -23,7 +23,7 @@ const AdminProducts = () => {
 
   const deleteProduct = async (productId) => {
     try {
-      await axios.delete(`http://localhost:3001/orders/${productId}`);
+      await axios.delete(`http://localhost:3001/products/allProducts/${productId}`);
       getProducts();
     } catch (error) {
       console.error("Error deleting product:", error);
